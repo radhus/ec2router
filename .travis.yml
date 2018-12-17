@@ -5,6 +5,10 @@ matrix:
   - go: 1.x
     env: GOOS=linux GOARCH=amd64
 
+
+install:
+- true # skip
+
 script:
 - go get -u github.com/golang/dep/cmd/dep
 - dep ensure
