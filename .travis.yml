@@ -1,0 +1,19 @@
+language: go
+sudo: false
+matrix:
+  include:
+    - go: 1.x
+      env: GOOS=linux GOARCH=amd64
+
+script:
+  - go get -t -v ./...
+  - go build .
+
+deploy:
+  provider: releases
+  skip_cleanup: true
+  file:
+    - ec2router
+  on:
+    repo: radhus/ec2router
+  draft: false
